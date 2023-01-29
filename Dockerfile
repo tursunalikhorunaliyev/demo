@@ -5,4 +5,4 @@ VOLUME /tmp
 WORKDIR /usr/app
 COPY gradle /usr/app/gradle
 EXPOSE 8080
-CMD ["java", "-jar", "demo.jar"]
+CMD ["java", "-jar", "demo-0.0.1-SNAPSHOT.jar"]
