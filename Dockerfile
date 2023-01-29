@@ -1,9 +1,6 @@
 FROM openjdk:8
 MAINTAINER khorunaliyev
 ENV SPRING_OUTPUT_ANSI_ENABLED \ JAVA_OPTS="-Xmx512m -Xms256m"
-VOLUME /tmp
-WORKDIR /usr/app
-COPY gradle /usr/app/gradle
-RUN ./gradlew build
+COPY --from=build /target/demo-0.0.1-SNAPSHOT.jar demo.jar
 EXPOSE 8080
-CMD ["java", "-jar", "demo-0.0.1-SNAPSHOT.jar"]
+ENTRYPOINT ["java", "-jar", "demo.jar"]
